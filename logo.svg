@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <!-- Background RED -->
+  <!-- <rect x="0" y="0" width="400" height="400" fill="red"/> -->
+  <!-- Main Logo -->
+  <g>
+    <!-- Main circle representing education -->
+    <circle cx="100" cy="100" r="90" fill="#f97316"/>
+    
+    <!-- Book/graduation cap suggestion dot -->
+    <circle cx="220" cy="100" r="20" fill="#fb923c"/>
+
+    <!-- Text -->
+    <text x="250" y="100" font-family="Arial" font-weight="bold" font-size="80" fill="#f97316">
+      digi
+    </text>
+    <text x="250" y="160" font-family="Arial" font-size="70" fill="#f9a826">
+      edu
+    </text>
+  </g>
+</svg>
