@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { camelToSnake } from '@/utils/index';
 import { decode } from '@/utils/custom-enc-dec';
 
-const URL_DIGIUSERS = process.env.VUE_APP_URL_DG_USERS;
+const URL_DIGIUSERS = process.env.VUE_APP_URL_DG_USERS_SV;
 
 const baseHttpClient = axios.create({
   baseURL: URL_DIGIUSERS,
@@ -35,8 +35,8 @@ function customErrorHandler(error: any) {
 
   switch (error.response.status) {
     case 401: {
-      const { VUE_APP_DIGI_USERS_F } = process.env;
-      window.location.href = `${VUE_APP_DIGI_USERS_F}/auth/login?app=edu`;
+      const { VUE_APP_DG_USERS_APP } = process.env;
+      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/login?app=edu`;
       break;
     }
     case 403:

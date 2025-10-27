@@ -239,8 +239,8 @@ router.beforeEach((to, from, next) => {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
     if (!localStorage.getItem('token')) {
-      const { VUE_APP_DIGI_USERS_F } = process.env;
-      window.location.href = `${VUE_APP_DIGI_USERS_F}/auth/login?app=edu`;
+      const { VUE_APP_DG_USERS_APP } = process.env;
+      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/login?app=edu`;
     } else {
       next();
     }

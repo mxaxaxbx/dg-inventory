@@ -183,8 +183,8 @@ const Dropdown = defineAsyncComponent(() => import('@/components/global/dropdown
 
 const store = useStore();
 
-const { VUE_APP_DIGI_USERS_F } = process.env;
-const usersLink = ref(`${VUE_APP_DIGI_USERS_F}`);
+const { VUE_APP_DG_USERS_APP } = process.env;
+const usersLink = ref(`${VUE_APP_DG_USERS_APP}`);
 
 const props = defineProps({
   highlight: {
