@@ -4,14 +4,14 @@
       v-validate-perm
       data-perm="lessons/update"
       :to="`/app/lessons/${lesson.moduleId}`"
-      class="text-lg font-semibold mb-4 text-orange-500"
+      class="text-lg font-semibold mb-4 text-green-500"
     >
       {{ m.title }}
     </router-link>
     <router-link
       v-if="showContent"
       :to="`/app/lessons/${lesson.moduleId}`"
-      class="text-lg font-semibold mb-4 text-orange-500"
+      class="text-lg font-semibold mb-4 text-green-500"
     >
       {{ lesson.title }}
     </router-link>
@@ -34,12 +34,12 @@
         :disabled="loading"
         @click="save"
         class="
-          bg-orange-500
+          bg-green-500
           text-white
           rounded
           px-4
           py-2
-          hover:bg-orange-600
+          hover:bg-green-600
           focus:outline-none
         "
       >
@@ -57,12 +57,12 @@
         :disabled="loading"
         @click="prevnext('prev')"
         class="
-          bg-orange-500
+          bg-green-500
           text-white
           rounded
           px-4
           py-2
-          hover:bg-orange-600
+          hover:bg-green-600
           focus:outline-none
         "
       >
@@ -75,12 +75,12 @@
         :disabled="loading"
         @click="prevnext('next')"
         class="
-          bg-orange-500
+          bg-green-500
           text-white
           rounded
           px-4
           py-2
-          hover:bg-orange-600
+          hover:bg-green-600
           focus:outline-none
         "
       >
@@ -117,7 +117,7 @@ const loading = ref(false);
 const showContent = ref<boolean>(false);
 
 function setTitle() {
-  document.title = `${lesson.value.title} - digi-edu`;
+  document.title = `${lesson.value.title} - dg-inventory`;
 }
 
 function checkAvailableContent() {
@@ -137,8 +137,8 @@ function clearContent(content: string) {
   // remove contenteditable tags
   newcontent = content.replace(/contenteditable="true"/g, '');
   // remove button with the following classes
-  // bg-orange-500 text-white px-4 py-2 rounded hover:bg-blue-600
-  const regex = /<button class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="button">\+<\/button>/g;
+  // bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600
+  const regex = /<button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="button">\+<\/button>/g;
 
   newcontent = newcontent.replace(regex, '');
 

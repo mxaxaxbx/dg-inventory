@@ -2,7 +2,7 @@
   <div class="bg-white p-4">
     <router-link
       :to="`/app/modules/${m.id}`"
-      class="text-lg font-semibold mb-4 text-orange-500"
+      class="text-lg font-semibold mb-4 text-green-500"
     >
       {{ m.title }}
     </router-link>
@@ -14,7 +14,7 @@
         v-validate-perm
         data-perm="lessons/add"
         :to="`/app/lessons/add/${m.id}`"
-        class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       >
         Add lesson
       </router-link>
@@ -22,7 +22,7 @@
         v-validate-perm
         data-perm="quizzes/add"
         :to="`/app/quizzes/add/${m.id}`"
-        class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       >
         Add Quizz
       </router-link>
@@ -44,7 +44,7 @@
       >
         <router-link
           :to="`/app/lessons/content/${l.title}-${l.id}`"
-          class="text-lg font-semibold text-orange-500"
+          class="text-lg font-semibold text-green-500"
         >
           {{ l.title }}
         </router-link>
@@ -86,7 +86,7 @@ function truncateHTML(html: string, maxLength: number) {
 }
 
 function setTitle() {
-  document.title = `${m.value.title} - digi-edu`;
+  document.title = `${m.value.title} - dg-inventory`;
 }
 
 async function getLessons() {

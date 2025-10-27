@@ -79,7 +79,7 @@ function createBlock(type: string, content = '', className = ''): HTMLElement {
   contentDiv.innerHTML = content;
 
   const addButton = document.createElement('button');
-  addButton.className = 'bg-orange-500 text-white px-4 py-2 rounded hover:bg-blue-600';
+  addButton.className = 'bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600';
   addButton.innerHTML = '+';
   addButton.type = 'button';
   // eslint-disable-next-line no-use-before-define

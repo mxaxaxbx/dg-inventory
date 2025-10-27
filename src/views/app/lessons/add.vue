@@ -2,7 +2,7 @@
   <div class="bg-white p-4">
     <router-link
       :to="`/app/lessons/${m.id}`"
-      class="text-lg font-semibold mb-4 text-orange-500"
+      class="text-lg font-semibold mb-4 text-green-500"
     >
       {{ m.title }}
     </router-link>
@@ -24,11 +24,11 @@
         :disabled="loading"
         @click="saveLesson"
         class="
-          bg-orange-500
+          bg-green-500
           text-white
           px-4 py-2
           rounded
-          hover:bg-orange-600
+          hover:bg-green-600
         "
       >
         <i v-if="loading" class="fas fa-spinner fa-spin"></i>
@@ -70,7 +70,7 @@ const lesson = ref<LessonI>({
 });
 
 function setTitle() {
-  document.title = `Agregar lesión ${m.value.title} - digi-edu`;
+  document.title = `Agregar lesión ${m.value.title} - dg-inventory`;
 }
 
 async function getModule() {

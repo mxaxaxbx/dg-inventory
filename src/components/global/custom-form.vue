@@ -296,13 +296,13 @@
       <button
         type="submit"
         class="
-          bg-orange-500
-          hover:bg-orange-700
+          bg-green-500
+          hover:bg-green-700
           text-white
           font-bold
           py-2 px-4
           rounded-lg
-          focus:border-orange-500
+          focus:border-green-500
         "
         :class="{ 'cursor-not-allowed opacity-50': props.loading }"
       >

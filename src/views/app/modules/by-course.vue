@@ -2,7 +2,7 @@
   <div class="bg-white p-4">
     <router-link
       :to="`/app/courses/${course.title}-${course.id}`"
-      class="text-lg font-semibold mb-4 text-orange-500"
+      class="text-lg font-semibold mb-4 text-green-500"
     >
       {{ course.title }}
     </router-link>
@@ -13,7 +13,7 @@
       v-validate-perm
       data-perm="modules/add"
       :to="`/app/modules/add/${course.id}`"
-      class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mb-10"
+      class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-10"
     >
       Add Module
     </router-link>
@@ -34,7 +34,7 @@
       >
         <router-link
           :to="`/app/modules/content/${m.title}-${m.id}`"
-          class="text-lg font-semibold text-orange-500"
+          class="text-lg font-semibold text-green-500"
         >
           {{ m.title }}
         </router-link>
@@ -64,7 +64,7 @@ const modules = computed<ModuleI[]>(() => store.state.modules.modules);
 const loading = ref(false);
 
 function setTitle() {
-  document.title = `${course.value.title} - digi-edu`;
+  document.title = `${course.value.title} - dg-inventory`;
 }
 
 async function getModules() {

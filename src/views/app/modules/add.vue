@@ -2,7 +2,7 @@
   <div class="bg-white p-4">
     <router-link
       :to="`/app/courses/${course.title}-${course.id}`"
-      class="text-lg font-semibold mb-4 text-orange-500"
+      class="text-lg font-semibold mb-4 text-green-500"
     >
       {{ course.title }}
     </router-link>
@@ -98,7 +98,7 @@ async function submit() {
 }
 
 function setTitle() {
-  document.title = `Agregar módulo ${course.value.title} - digi-edu`;
+  document.title = `Agregar módulo ${course.value.title} - dg-inventory`;
 }
 
 async function getCourse() {

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white p-4">
-    <h2 class="text-lg font-semibold mb-4 text-orange-500">
+    <h2 class="text-lg font-semibold mb-4 text-green-500">
       {{ course.title }}
     </h2>
     <!-- line -->
@@ -42,12 +42,12 @@
             type="submit"
             :disabled="loading"
             class="
-              bg-orange-500
+              bg-green-500
               text-white
               rounded
               px-4
               py-2
-              hover:bg-orange-600
+              hover:bg-green-600
               focus:outline-none
             "
           >
@@ -71,12 +71,12 @@
         :disabled="loading"
         @click="enrollCourse"
         class="
-          bg-orange-500
+          bg-green-500
           text-white
           rounded
           px-4
           py-2
-          hover:bg-orange-600
+          hover:bg-green-600
           focus:outline-none
         "
       >
@@ -110,7 +110,7 @@ const loading = ref(false);
 const justSee = ref(false);
 
 function setCourseTitle() {
-  document.title = `${course.value.title} - digi-edu`;
+  document.title = `${course.value.title} - dg-inventory`;
 }
 
 function checkCourseForm() {

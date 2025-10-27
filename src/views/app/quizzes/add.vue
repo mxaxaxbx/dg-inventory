@@ -39,12 +39,12 @@
             text-sm
             font-medium
             text-white
-            bg-orange-600
+            bg-green-600
             border border-transparent
             rounded-md
             shadow-sm
-            hover:bg-orange-700
-            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            hover:bg-green-700
+            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
           >
           Add Question
         </button>
@@ -110,12 +110,12 @@
               text-sm
               font-medium
               text-white
-              bg-orange-600
+              bg-green-600
               border border-transparent
               rounded-md
               shadow-sm
-              hover:bg-orange-700
-              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              hover:bg-green-700
+              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
             Add Answer
           </button>
@@ -193,12 +193,12 @@
             text-sm
             font-medium
             text-white
-            bg-orange-600
+            bg-green-600
             border border-transparent
             rounded-md
             shadow-sm
-            hover:bg-orange-700
-            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            hover:bg-green-700
+            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
           :disabled="loading"
         >
           {{ loading ? 'Loading...' : 'Submit' }}

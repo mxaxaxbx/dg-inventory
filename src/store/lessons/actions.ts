@@ -19,7 +19,7 @@ export const actions: ActionTree<LessonsStateI, RootStateI> = {
     payload: LessonI,
   ): Promise<void> {
     const { content } = payload;
-    const newContent = content.replace(/<button class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="button">\+<\/button>/g, '');
+    const newContent = content.replace(/<button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="button">\+<\/button>/g, '');
     const newPayload = { ...payload, content: newContent };
     await eduClient.post('/api/lessons/add', camelToSnake(newPayload));
   },
@@ -35,7 +35,7 @@ export const actions: ActionTree<LessonsStateI, RootStateI> = {
     payload: LessonI,
   ): Promise<void> {
     const { content } = payload;
-    const newContent = content.replace(/<button class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="button">\+<\/button>/g, '');
+    const newContent = content.replace(/<button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="button">\+<\/button>/g, '');
     const newPayload = { ...payload, content: newContent };
     await eduClient.patch('/api/lessons/update', camelToSnake(newPayload));
   },

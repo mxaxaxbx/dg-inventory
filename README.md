@@ -1,4 +1,4 @@
-# digi-edu
+# dg-inventory
 
 ## Project setup
 ```

@@ -2,7 +2,7 @@
   <div class="bg-white p-4">
     <router-link
       :to="`/app/modules/${m.id}`"
-      class="text-lg font-semibold mb-4 text-orange-500"
+      class="text-lg font-semibold mb-4 text-green-500"
     >
       {{ m.title }}
     </router-link>
@@ -32,12 +32,12 @@
         :disabled="loading"
         @click="enroll"
         class="
-          bg-orange-500
+          bg-green-500
           text-white
           rounded
           px-4
           py-2
-          hover:bg-orange-600
+          hover:bg-green-600
           focus:outline-none
         "
       >
@@ -131,7 +131,7 @@ async function submit() {
 }
 
 function setTitle() {
-  document.title = `${m.value.title} - digi-edu`;
+  document.title = `${m.value.title} - dg-inventory`;
 }
 
 function checkAvailableContent() {

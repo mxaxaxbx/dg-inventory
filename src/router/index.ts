@@ -232,7 +232,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // Set title
   if (to.meta.title) {
-    document.title = `${to.meta.title} - digi-edu`;
+    document.title = `${to.meta.title} - dg-inventory`;
   }
 
   if (to.matched.some((record) => record.meta.requiresAuth)) {
