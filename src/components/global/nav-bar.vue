@@ -158,7 +158,7 @@
         </template>
       </Dropdown>
       <div v-else>
-        <a :href="`${usersLink}/auth/login?app=care`" aria-label="User Profile">
+        <a :href="`${usersLink}/auth/provider?app=inventory`" aria-label="User Profile">
           <i class="fas fa-user" aria-hidden="true"></i>
           <span class="sr-only">User Profile</span>
         </a>

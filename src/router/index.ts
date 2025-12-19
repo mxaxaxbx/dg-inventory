@@ -240,7 +240,7 @@ router.beforeEach((to, from, next) => {
     // if not, redirect to login page.
     if (!localStorage.getItem('token')) {
       const { VUE_APP_DG_USERS_APP } = process.env;
-      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/login?app=edu`;
+      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/provider?app=inventory`;
     } else {
       next();
     }

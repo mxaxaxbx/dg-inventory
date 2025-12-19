@@ -9,7 +9,7 @@ export const actions: ActionTree<AuthStateI, RootStateI> = {
   async confirmSession(context: ActionContext<AuthStateI, RootStateI>, payload: string) {
     if (!payload) {
       const { VUE_APP_DG_USERS_APP } = process.env;
-      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/login?app=edu`;
+      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/provider?app=inventory`;
       return;
     }
     context.commit('setToken', payload);
@@ -37,7 +37,7 @@ export const actions: ActionTree<AuthStateI, RootStateI> = {
     context.commit('setProjects', '');
     // context.commit('setProject', null);
     const { VUE_APP_DG_USERS_APP } = process.env;
-    window.location.href = `${VUE_APP_DG_USERS_APP}/auth/login?app=edu`;
+    window.location.href = `${VUE_APP_DG_USERS_APP}/auth/provider?app=inventory`;
   },
   async changeProject(context: ActionContext<AuthStateI, RootStateI>, payload: number) {
     // get current project from getters

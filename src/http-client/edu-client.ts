@@ -36,7 +36,7 @@ function customErrorHandler(error: any) {
   switch (error.response.status) {
     case 401: {
       const { VUE_APP_DG_USERS_APP } = process.env;
-      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/login?app=edu`;
+      window.location.href = `${VUE_APP_DG_USERS_APP}/auth/provider?app=inventory`;
       break;
     }
     case 403:
