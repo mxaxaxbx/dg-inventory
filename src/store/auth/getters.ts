@@ -11,13 +11,9 @@ import {
 import { RootStateI } from '../state';
 
 export const getters: GetterTree<AuthStateI, RootStateI> = {
-  isAuthenticated: (state) => {
-    const user = localStorage.getItem('user');
-    const projects = localStorage.getItem('projects');
-    const project = localStorage.getItem('project');
-    const perms = localStorage.getItem('permissions');
+  isAuth: (state) => {
     const token = localStorage.getItem('token');
-    return !!user && !!projects && !!project && !!perms && !!token;
+    return !!token;
   },
   user: (state) => {
     const encodedUser = localStorage.getItem('user');
