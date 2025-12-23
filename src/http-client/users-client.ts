@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { camelToSnake } from '@/utils/index';
 import { decode } from '@/utils/custom-enc-dec';
 
-const URL_DIGIUSERS = process.env.VUE_APP_URL_DG_USERS_SV;
+const URL_DIGIUSERS = process.env.VUE_APP_DG_USERS_SV;
 
 const baseHttpClient = axios.create({
   baseURL: URL_DIGIUSERS,
