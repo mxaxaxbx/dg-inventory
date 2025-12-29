@@ -9,14 +9,6 @@ import {
   UserI,
 } from './state';
 
-function checkProject() {
-  const projectEncoded = localStorage.getItem('project');
-  if (!projectEncoded) {
-    return '';
-  }
-  return projectEncoded;
-}
-
 export const mutations: MutationTree<AuthStateI> = {
   setProjects(state: AuthStateI, payload: string) {
     if (payload.length === 0) {
@@ -26,13 +18,13 @@ export const mutations: MutationTree<AuthStateI> = {
     }
     const { value } = decode(payload);
     localStorage.setItem('projects', payload);
-    state.projects = value as unknown as ProjectI[];
+    state.projects = typeof value === 'string' ? JSON.parse(value) : value;
 
-    const project = checkProject();
-    if (!project) {
-      const selectedProject = state.projects[0] as any;
-      selectedProject.ID = Number(selectedProject.ID);
-      const projectEncoded = encode(selectedProject);
+    if (state.projects.length && !state.project) {
+      const { id } = state.projects[0];
+      const project = state.projects.find((p: ProjectI) => p.id === id);
+      state.project = project;
+      const projectEncoded = encode(project as any);
       localStorage.setItem('project', projectEncoded);
     }
   },

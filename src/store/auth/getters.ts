@@ -18,33 +18,14 @@ export const getters: GetterTree<AuthStateI, RootStateI> = {
   user: (state) => {
     const encodedUser = localStorage.getItem('user');
     if (!encodedUser) return state.user;
-    const u = decode(encodedUser).value as any;
-    const user: any = {};
-    Object.keys(u).forEach((key) => {
-      // convert the first letter of the key to lowercase
-      const newKey = key.charAt(0).toLowerCase() + key.slice(1);
-      user[newKey] = u[key];
-    });
-    return user as UserI;
+    const { value } = decode(encodedUser);
+    return typeof value === 'string' ? JSON.parse(value) : value;
   },
   projects: (state) => {
     const encodedProjects = localStorage.getItem('projects');
     if (!encodedProjects) return state.projects;
-    const projetcs = decode(encodedProjects).value as ProjectI[];
-    const projectsMapped = projetcs.map((project: any) => {
-      const p: any = {};
-      Object.keys(project).forEach((key) => {
-        if (key === 'ID') {
-          p.id = Number(project[key]);
-          return;
-        }
-        // convert the first letter of the key to lowercase
-        const newKey = key.charAt(0).toLowerCase() + key.slice(1);
-        p[newKey] = project[key];
-      });
-      return p as ProjectI;
-    });
-    return projectsMapped;
+    const { value } = decode(encodedProjects);
+    return typeof value === 'string' ? JSON.parse(value) : value;
   },
   project: (state) => {
     const encodedProject = localStorage.getItem('project');

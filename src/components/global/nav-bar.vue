@@ -1,10 +1,5 @@
 <template>
   <div class="bg-gray-100 h-12" :class="{ 'highlighted bg-gray-200': highlight }">
-    <Search
-      class="absolute"
-      v-if="showSearch"
-      @close="showSearch = false"
-    />
     <nav class="flex items-center justify-between px-6 py-1">
       <div class="flex items-center">
         <button
@@ -81,6 +76,7 @@
         <template #content="{}">
           <!-- Avatar, email, user name -->
           <div class="flex flex-col items-center">
+            {{  user }}
             <div class="relative --w-16 --h-16">
               <!-- <img
                 src="https://via.placeholder.com/64"
