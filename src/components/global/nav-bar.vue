@@ -76,7 +76,6 @@
         <template #content="{}">
           <!-- Avatar, email, user name -->
           <div class="flex flex-col items-center">
-            {{  user }}
             <div class="relative --w-16 --h-16">
               <!-- <img
                 src="https://via.placeholder.com/64"

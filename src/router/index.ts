@@ -57,6 +57,15 @@ const routes: Array<RouteRecordRaw> = [
           title: 'Dashboard',
         },
       },
+      // projects
+      {
+        path: 'projects',
+        name: 'app-projects',
+        component: () => import('../views/app/projects/index.vue'),
+        meta: {
+          title: 'Proyectos',
+        },
+      },
     ],
   },
 ];

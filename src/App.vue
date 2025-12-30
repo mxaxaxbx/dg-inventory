@@ -1,6 +1,7 @@
 <template>
-  <div class="bg-gray-200">
+  <div class="absolute inset-0 bg-gray-200 flex flex-col">
     <Notifications />
+
     <!-- Dark overlay -->
     <div
       v-if="showSidebar"
@@ -8,29 +9,21 @@
       @click="toggleSidebar"
       @keydown="toggleSidebar"
     ></div>
-    <!-- menu -->
+
+    <!-- menu - fixed -->
     <div
       v-click-outside="clickOutside"
-      class="
-        w-full fixed
-        z-40
-        -mt-2
-        mb-8
-      "
+      class="w-full sticky z-40 top-0 left-0 right-0"
     >
       <NavBar/>
-      <!-- sidebar -->
       <Sidebar />
     </div>
-    <!-- content -->
-    <div
-      class="pt-10 min-h-screen"
-      :class="{
-        'blocker': showSidebar,
-      }"
-    >
+
+    <!-- content - with proper top padding to account for fixed header -->
+    <div class="flex-1">
       <router-view />
     </div>
+
     <!-- footer -->
     <footer class="bg-gray-800 text-white py-8">
       <div class="container mx-auto text-center">
