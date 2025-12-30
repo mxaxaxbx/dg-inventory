@@ -65,6 +65,16 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           title: 'Proyectos',
         },
+        children: [
+          {
+            path: 'add',
+            name: 'app-projects-add',
+            component: () => import('../views/app/projects/add.vue'),
+            meta: {
+              title: 'Agregar proyecto',
+            },
+          },
+        ],
       },
     ],
   },

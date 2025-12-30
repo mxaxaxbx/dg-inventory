@@ -26,10 +26,5 @@
       <span class="hidden md:inline"> Agregar proyecto </span>
     </router-link>
   </div>
-  <!-- projects list -->
-  <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    <div v-for="p in projects" :key="p.id" class="bg-white p-4">
-      <h2 class="text-lg font-bold">{{ p.name }}</h2>
-    </div>
-  </div> -->
+  <router-view></router-view>
 </template>
