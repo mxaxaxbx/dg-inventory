@@ -7,6 +7,7 @@ import courses from './courses';
 import modulesS from './modules/index';
 import lessons from './lessons';
 import quizzes from './quizzes';
+import projects from './projects';
 
 import { state, RootStateI } from './state';
 import { mutations } from './mutations';
@@ -29,5 +30,6 @@ store.registerModule('courses', courses);
 store.registerModule('modules', modulesS);
 store.registerModule('lessons', lessons);
 store.registerModule('quizzes', quizzes);
+store.registerModule('projects', projects);
 
 export default store;

@@ -17,7 +17,7 @@ const projects = computed<ProjectI[]>(() => store.getters['auth/projects']);
 async function checkProjects() {
   await store.dispatch('auth/getUserProjects');
   if (projects.value.length === 0) {
-    router.push('/app/projects');
+    router.push('/app/projects/add?ref=dashboard');
     return;
   }
 

@@ -10,7 +10,7 @@
           <input
             type="text"
             id="name"
-            v-model="name"
+            v-model="project.name"
             class="w-full border border-gray-300 rounded p-2"
             required
             :class="{ 'border-red-500': error }"
@@ -37,20 +37,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useStore } from 'vuex';
+import { useRoute } from 'vue-router';
+
+import { ProjectI } from '@/store/projects/state';
 
 const store = useStore();
+const route = useRoute();
+
+const project = computed<ProjectI>(() => store.state.projects.project);
 
 const loading = ref(false);
-const name = ref('');
 const error = ref('');
 
 async function submit() {
   loading.value = true;
   try {
-    await store.dispatch('projects/add', { name: name.value });
-    window.location.href = '/app/projects';
+    await store.dispatch('projects/add', project.value);
+    const reference = typeof route.query.ref === 'string' ? route.query.ref : '';
+    if (reference === 'dashboard') {
+      window.location.href = '/app/dashboard';
+    } else {
+      window.location.href = '/app/projects';
+    }
   } catch (err: any) {
     console.error(err);
     const msg = err.response?.data?.error || 'An error occurred saving the project';
