@@ -14,18 +14,18 @@ const router = useRouter();
 
 const projects = computed<ProjectI[]>(() => store.getters['auth/projects']);
 
-async function checkProjects() {
-  await store.dispatch('auth/getUserProjects');
-  if (projects.value.length === 0) {
-    router.push('/app/projects/add?ref=dashboard');
-    return;
-  }
+// async function checkProjects() {
+//   await store.dispatch('auth/getUserProjects');
+//   if (projects.value.length === 0) {
+//     router.push('/app/projects/add?ref=dashboard');
+//     return;
+//   }
 
-  console.log('projects', projects.value);
-}
+//   console.log('projects', projects.value);
+// }
 
 onMounted(() => {
-  checkProjects();
+  // checkProjects();
 });
 
 </script>

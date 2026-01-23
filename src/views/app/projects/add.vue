@@ -1,12 +1,12 @@
 <template>
   <div class="bg-white p-4">
-    <h1 class="text-2xl font-bold">Agregar proyecto</h1>
+    <h1 class="text-2xl font-bold"> Agregar comercio </h1>
     <!-- line -->
     <div class="bg-gray-200 h-0.5 w-full my-4"></div>
     <form @submit.prevent="submit">
       <div class="grid grid-cols-1 gap-4">
         <div>
-          <label for="name" class="text-sm font-semibold">Nombre del proyecto</label>
+          <label for="name" class="text-sm font-semibold"> Nombre del comercio </label>
           <input
             type="text"
             id="name"
@@ -28,7 +28,7 @@
             :disabled="loading"
           >
             <i v-if="loading" class="fas fa-spinner fa-spin"></i>
-            Agregar proyecto
+            Agregar comercio
           </button>
         </div>
       </div>
