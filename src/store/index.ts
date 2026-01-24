@@ -1,12 +1,7 @@
 import { createStore, Store } from 'vuex';
 
 import auth from './auth';
-import teachers from './teachers';
 import notifications from './notifications';
-import courses from './courses';
-import modulesS from './modules/index';
-import lessons from './lessons';
-import quizzes from './quizzes';
 import projects from './projects';
 
 import { state, RootStateI } from './state';
@@ -25,11 +20,6 @@ const store: Store<RootStateI> = createStore({
 
 store.registerModule('auth', auth);
 store.registerModule('notifications', notifications);
-store.registerModule('teachers', teachers);
-store.registerModule('courses', courses);
-store.registerModule('modules', modulesS);
-store.registerModule('lessons', lessons);
-store.registerModule('quizzes', quizzes);
 store.registerModule('projects', projects);
 
 export default store;

@@ -3,10 +3,10 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { camelToSnake } from '@/utils/index';
 import { decode } from '@/utils/custom-enc-dec';
 
-const DG_EDU = process.env.VUE_APP_URL_DG_EDU;
+const DG_INVENTORY = process.env.VUE_APP_DG_INVENTORY_SV;
 
 const baseHttpClient = axios.create({
-  baseURL: DG_EDU,
+  baseURL: DG_INVENTORY,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -63,13 +63,10 @@ baseHttpClient.interceptors.request.use((config) => {
     modifiedConfig.headers.Authorization = `DGTK ${token}`;
   }
 
-  // const project = localStorage.getItem('project');
-  // if (project) {
-  //   const { value } = decode(project) as any;
-  //   // get the project id. Could be 'ID' or 'id'
-  //   const projectId = value.ID || value.id;
-  //   modifiedConfig.headers['Dg-Businessid'] = projectId;
-  // }
+  const localProject = process.env.VUE_APP_DG_LOCAL_PROJECT;
+  if (localProject) {
+    modifiedConfig.headers['Dg-Project-Id'] = localProject;
+  }
 
   return modifiedConfig;
 });
