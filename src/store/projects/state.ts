@@ -23,6 +23,7 @@ export interface ProjectsStateI {
   project: ProjectI;
   projects: ProjectI[];
   store: StoreI;
+  stores: StoreI[];
 }
 
 export const state: ProjectsStateI = {
@@ -47,4 +48,5 @@ export const state: ProjectsStateI = {
     created: 0,
     updated: 0,
   },
+  stores: [],
 };

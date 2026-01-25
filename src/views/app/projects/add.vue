@@ -54,10 +54,11 @@ const error = ref('');
 async function submit() {
   loading.value = true;
   try {
-    await store.dispatch('projects/add', project.value);
+    await store.dispatch('projects/addProject', project.value);
     const reference = typeof route.query.ref === 'string' ? route.query.ref : '';
-    if (reference === 'dashboard') {
-      window.location.href = '/app/dashboard';
+    if (reference === 'auth') {
+      const token = localStorage.getItem('token');
+      window.location.href = `/auth/confirmsession?token=${token}`;
     } else {
       window.location.href = '/app/projects';
     }
