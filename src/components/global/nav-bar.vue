@@ -28,6 +28,7 @@
             name="COMP_Nombre"
             id="COMP_Nombre"
             class="select-css"
+            @change="changeStore"
           >
             <option selected disabled value="0">Seleccione una tienda</option>
             <option
@@ -200,6 +201,11 @@ const st = computed<StoreI>(() => store.getters['projects/store']);
 
 const user = computed<UserI>(() => store.getters['auth/user']);
 const isAuth = computed<boolean>(() => store.getters['auth/isAuth']);
+
+function changeStore(ev: Event) {
+  const storeId = (ev.target as HTMLSelectElement).value;
+  store.dispatch('projects/changeStore', Number(storeId));
+}
 
 const toggleSidebar = () => {
   store.commit('toggleSidebar');
