@@ -29,10 +29,15 @@
             id="COMP_Nombre"
             class="select-css"
           >
-            <option>Seleccione</option>
-            <option value="Ruc">Ruc</option>
-            <option value="Dni">Dni</option>
-            <option value="Carnet">Carnet</option>
+            <option selected disabled value="0">Seleccione una tienda</option>
+            <option
+              v-for="s in stores"
+              :key="s.id"
+              :value="s.id"
+              :selected="s.id === st.id"
+            >
+              {{ s.name }}
+            </option>
           </select>
         </div>
       </div>
