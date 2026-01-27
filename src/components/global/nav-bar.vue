@@ -15,18 +15,26 @@
           <i class="fas fa-bars"></i>
         </button>
         <!-- brand -->
-        <!-- <div class="flex items-center ml-4"> -->
+        <div class="flex items-center space-x-2">
           <router-link
             :to="isAuth ? '/app' : '/'"
             class="text-xl font-bold"
           >
-            <img
-              src="https://assets.digiapps.com.co/digi-care-logo.png"
-              alt="digi inventory logo"
-              class="w-20"
-            />
+            inventory
           </router-link>
-        <!-- </div> -->
+          <!-- store selector -->
+          <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+          <select
+            name="COMP_Nombre"
+            id="COMP_Nombre"
+            class="select-css"
+          >
+            <option>Seleccione</option>
+            <option value="Ruc">Ruc</option>
+            <option value="Dni">Dni</option>
+            <option value="Carnet">Carnet</option>
+          </select>
+        </div>
       </div>
       <!-- search and user -->
       <Dropdown v-if="isAuth">
@@ -173,6 +181,7 @@ import {
 import { useStore } from 'vuex';
 
 import { UserI } from '@/store/auth/state';
+import { StoreI } from '@/store/projects/state';
 
 const Dropdown = defineAsyncComponent(() => import('@/components/global/dropdown.vue'));
 
@@ -181,22 +190,11 @@ const store = useStore();
 const { VUE_APP_DG_USERS_APP } = process.env;
 const usersLink = ref(`${VUE_APP_DG_USERS_APP}`);
 
-const props = defineProps({
-  highlight: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-});
-
-const showUserMenu = ref(false);
-const showSearch = ref(false);
+const stores = computed<StoreI[]>(() => store.getters['projects/stores']);
+const st = computed<StoreI>(() => store.getters['projects/store']);
 
 const user = computed<UserI>(() => store.getters['auth/user']);
 const isAuth = computed<boolean>(() => store.getters['auth/isAuth']);
-
-const closeOnClickOutside = () => {
-  showUserMenu.value = false;
-};
 
 const toggleSidebar = () => {
   store.commit('toggleSidebar');
@@ -207,3 +205,55 @@ const logout = () => {
 };
 
 </script>
+
+<style scoped>
+option:hover {
+  background-color: #000;
+  border-radius: .2em;
+}
+select option:hover,
+select option:focus,
+select option:active {
+  background: linear-gradient(#1AA26E, #1AA26E);
+  background-color: #000 !important; /* for IE */
+  color: #fff !important;
+}
+select option:checked {
+  background: linear-gradient(#000, #000);
+  background-color: #000 !important;
+}
+.select-css {
+  display: block;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.3;
+  padding: .2em 0.4em .2em .5em;
+  width: 120px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px solid #000;
+  box-shadow: 0 1px 0 1px rgba(204,20,20,.03);
+  border-radius: .3em;
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+  background: #000;
+}
+.select-css::-ms-expand {
+  display: none;
+}
+.select-css:hover {
+  border-color: #077474;
+  background-color: #000;
+  /*box-shadow: 0 0 10px 100px #000 inset;*/
+}
+.select-css:focus {
+  color: #fff;
+  border-color: #077474;
+  box-shadow: 0 0 1px 3px rgba(31, 131, 66, .7);
+  outline: none;
+}
+</style>

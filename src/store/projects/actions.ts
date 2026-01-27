@@ -53,4 +53,31 @@ export const actions: ActionTree<ProjectsStateI, RootStateI> = {
     context.commit('setStore', data[0]);
   },
 
+  chchangeStoreangeProject(context: ActionContext<ProjectsStateI, RootStateI>, payload: number) {
+    // get current project from getters
+    const { projects } = context.getters;
+    // find the project with the given id
+    const project = projects.find((p: StoreI) => p.id === payload);
+
+    if (project) {
+      context.commit('setStore', project);
+      // reload the page with cache
+      // Clear cache and reload by navigating to the same URL
+      // but keep the query params
+      const url = window.location.href;
+      const query: Record<string, string> = {};
+      const queryParams = url.split('?');
+      if (queryParams.length > 1) {
+        const params = queryParams[1].split('&');
+        params.forEach((p: string) => {
+          const [key, value] = p.split('=');
+          query[key] = value;
+        });
+      }
+      query.project = project.projectId.toString();
+      const newUrl = `${url.split('?')[0]}?${Object.entries(query).map(([key, value]) => `${key}=${value}`).join('&')}`;
+      window.location.href = newUrl;
+    }
+  },
+
 };
