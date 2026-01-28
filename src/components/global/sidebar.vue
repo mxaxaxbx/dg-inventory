@@ -40,45 +40,17 @@
             <span class="flex-1 ml-3 whitespace-nowrap"> Cursos </span>
           </router-link>
         </li>
-      </ul>
-      <!-- projects always at bottom -->
-      <div v-if="isAuth" class="flex-1"></div>
-      <div
-        v-if="isAuth"
-        class="
-          w-full
-          sticky
-          bottom-0
-          pb-10
-        "
-      >
-        <label for="projectID">
-          <select
-            v-model="project.id"
-            @change="changeProject"
-            id="projectID"
-            class="
-              bg-gray-50
-              border border-gray-300
-              text-gray-900 text-sm
-              rounded-lg
-              focus:border-blue-500
-              block w-full
-              p-2.5
-            "
+        <!-- stores -->
+        <li>
+          <router-link
+            to="/app/projects"
+            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
           >
-            <option selected disabled value="">Selecciona un valor</option>
-            <option
-              v-for="p in projects"
-              :key="p.id"
-              :value="p.id"
-              :selected="p.id === project.id"
-            >
-              {{ p.name }}
-            </option>
-          </select>
-        </label>
-      </div>
+            <i class="fas fa-store w-5 h-5 text-gray-500"></i>
+            <span class="flex-1 ml-3 whitespace-nowrap"> Tiendas </span>
+          </router-link>
+        </li>
+      </ul>
     </div>
   </aside>
 </template>
@@ -95,9 +67,7 @@ const route = useRoute();
 
 const showSidebar = computed(() => store.state.sidebar);
 
-const isAuth = computed(() => store.getters['auth/isAuthenticated']);
-const projects = computed<ProjectI[]>(() => store.getters['auth/projects']);
-const project = computed<ProjectI>(() => store.getters['auth/project']);
+const isAuth = computed(() => store.getters['auth/isAuth']);
 const permissions = computed<PermissionI[]>(() => store.getters['auth/permissions']);
 
 function validatePermissions(perm: string) {

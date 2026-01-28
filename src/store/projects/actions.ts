@@ -53,7 +53,7 @@ export const actions: ActionTree<ProjectsStateI, RootStateI> = {
     context.commit('setStore', data[0]);
   },
 
-  chchangeStoreangeProject(context: ActionContext<ProjectsStateI, RootStateI>, payload: number) {
+  changeStore(context: ActionContext<ProjectsStateI, RootStateI>, payload: number) {
     // get current project from getters
     const { projects } = context.getters;
     // find the project with the given id
@@ -78,6 +78,11 @@ export const actions: ActionTree<ProjectsStateI, RootStateI> = {
       const newUrl = `${url.split('?')[0]}?${Object.entries(query).map(([key, value]) => `${key}=${value}`).join('&')}`;
       window.location.href = newUrl;
     }
+  },
+
+  async getStores(context: ActionContext<ProjectsStateI, RootStateI>) {
+    const { data } = await invClient.get('/api/general-requests/stores');
+    context.commit('setStores', data);
   },
 
 };

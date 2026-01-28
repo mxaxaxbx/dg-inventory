@@ -71,7 +71,15 @@ const routes: Array<RouteRecordRaw> = [
             name: 'app-projects-add',
             component: () => import('../views/app/projects/add.vue'),
             meta: {
-              title: 'Agregar proyecto',
+              title: 'Agregar tienda',
+            },
+          },
+          {
+            path: '',
+            name: 'app-projects-list',
+            component: () => import('../views/app/projects/list.vue'),
+            meta: {
+              title: 'Lista de tiendas',
             },
           },
         ],

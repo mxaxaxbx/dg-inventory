@@ -23,7 +23,7 @@
       "
     >
       <i class="fas fa-plus"></i>
-      <span class="hidden md:inline"> Agregar proyecto </span>
+      <span class="hidden md:inline"> Agregar tienda </span>
     </router-link>
   </div>
   <router-view></router-view>
