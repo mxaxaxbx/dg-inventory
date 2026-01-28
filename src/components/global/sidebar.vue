@@ -50,6 +50,16 @@
             <span class="flex-1 ml-3 whitespace-nowrap"> Tiendas </span>
           </router-link>
         </li>
+        <!-- inventory -->
+        <li>
+          <router-link
+            to="/app/inventory"
+            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+          >
+            <i class="fas fa-box w-5 h-5 text-gray-500"></i>
+            <span class="flex-1 ml-3 whitespace-nowrap"> Inventario </span>
+          </router-link>
+        </li>
       </ul>
     </div>
   </aside>

@@ -1,0 +1,3 @@
+<template>
+  load inv
+</template>

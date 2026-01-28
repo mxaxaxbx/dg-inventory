@@ -92,6 +92,29 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
+      // inventory
+      {
+        path: 'inventory',
+        name: 'app-inventory',
+        component: () => import('../views/app/inventory/index.vue'),
+        meta: {
+          title: 'Inventario',
+        },
+        children: [
+          {
+            path: '',
+            redirect: { name: 'app-inventory-load' },
+          },
+          {
+            path: 'load',
+            name: 'app-inventory-load',
+            component: () => import('../views/app/inventory/load.vue'),
+            meta: {
+              title: 'Cargar inventario',
+            },
+          },
+        ],
+      },
     ],
   },
 ];
