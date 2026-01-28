@@ -1,7 +1,7 @@
 import { ActionTree, ActionContext } from 'vuex';
 
 import { usersClient, invClient } from '@/http-client';
-import { camelToSnake } from '@/utils';
+import { camelToSnake, snakeToCamel } from '@/utils';
 
 import { RootStateI } from '../state';
 import { ProjectsStateI, ProjectI, StoreI } from './state';
@@ -90,7 +90,11 @@ export const actions: ActionTree<ProjectsStateI, RootStateI> = {
     if (data.length === 0) {
       throw new Error('Store not found');
     }
-    return data[0];
+    return snakeToCamel(data[0]) as StoreI;
+  },
+
+  async updateStore(context: ActionContext<ProjectsStateI, RootStateI>, payload: StoreI) {
+    await invClient.put('/api/general-requests/stores', camelToSnake(payload));
   },
 
 };
