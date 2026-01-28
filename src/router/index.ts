@@ -82,6 +82,14 @@ const routes: Array<RouteRecordRaw> = [
               title: 'Lista de tiendas',
             },
           },
+          {
+            path: 'edit/:id',
+            name: 'app-projects-edit',
+            component: () => import('../views/app/projects/edit.vue'),
+            meta: {
+              title: 'Modificar tienda',
+            },
+          },
         ],
       },
     ],

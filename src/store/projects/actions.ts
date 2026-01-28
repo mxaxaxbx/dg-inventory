@@ -85,4 +85,12 @@ export const actions: ActionTree<ProjectsStateI, RootStateI> = {
     context.commit('setStores', data);
   },
 
+  async getStore(context: ActionContext<ProjectsStateI, RootStateI>, payload: number) {
+    const { data } = await invClient.get(`/api/general-requests/stores?query=id&value=${payload}`);
+    if (data.length === 0) {
+      throw new Error('Store not found');
+    }
+    return data[0];
+  },
+
 };
